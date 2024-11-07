@@ -2,20 +2,22 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, Linking } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
-  // Main video gallery items
-  const videoItems = Array.from({ length: 20 }, (_, index) => ({
-    id: index.toString(),
-    title: `Video ${index + 1}`,
-    thumbnail: 'https://via.placeholder.com/150',
-  }));
+  // Video gallery items with specific links and YouTube thumbnails
+  const videoItems = [
+    { id: '1', title: 'Video 1', thumbnail: 'https://img.youtube.com/vi/x2R1HCz1xzQ/hqdefault.jpg', link: 'https://youtu.be/x2R1HCz1xzQ?si=OvAxAWhheLI8xuLk' },
+    { id: '2', title: 'Video 2', thumbnail: 'https://img.youtube.com/vi/I3-lMkyTsc8/hqdefault.jpg', link: 'https://youtu.be/I3-lMkyTsc8?si=UQQciCAB8sUMsDym' },
+    { id: '3', title: 'Video 3', thumbnail: 'https://img.youtube.com/vi/Es18TNPzQIY/hqdefault.jpg', link: 'https://youtu.be/Es18TNPzQIY?si=3zYzDaIV_Fpbk448' },
+    { id: '4', title: 'Video 4', thumbnail: 'https://img.youtube.com/vi/Unk2KIB3coI/hqdefault.jpg', link: 'https://youtu.be/Unk2KIB3coI?si=2QQULPS3LK4coNB9' },
+    // (continue with other videos)
+  ];
 
-  // Special category for "Nigeria Movies" with the provided YouTube link and actual YouTube thumbnail
+  // Special category for "Nigeria Movies" with specific YouTube link and thumbnail
   const categories = [
     {
       id: 'nigeriaMovies',
       title: 'Nigeria Movies',
-      thumbnail: 'https://img.youtube.com/vi/ftRSxOqZ148/hqdefault.jpg', // YouTube thumbnail for Nigeria Movies video
-      link: 'https://youtu.be/ftRSxOqZ148?si=O143mO2azDPN2J8c', // YouTube link for Nigeria Movies
+      thumbnail: 'https://img.youtube.com/vi/ftRSxOqZ148/hqdefault.jpg',
+      link: 'https://youtu.be/ftRSxOqZ148?si=O143mO2azDPN2J8c',
     },
   ];
 
@@ -29,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
 
   // Render regular video items for the gallery
   const renderVideoItem = ({ item }) => (
-    <TouchableOpacity style={styles.videoBox}>
+    <TouchableOpacity style={styles.videoBox} onPress={() => Linking.openURL(item.link)}>
       <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
       <Text style={styles.videoTitle}>{item.title}</Text>
     </TouchableOpacity>
@@ -113,50 +115,38 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   categoryList: {
-    paddingBottom: 10,
+    marginBottom: 20,
   },
   categoryBox: {
-    width: 100,
-    height: 120,
-    marginHorizontal: 5,
-    backgroundColor: '#f5deb3', // Light beige color
-    justifyContent: 'center',
+    marginRight: 15,
     alignItems: 'center',
-    borderRadius: 10,
+  },
+  thumbnail: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
   },
   categoryTitle: {
     marginTop: 5,
-    color: '#333',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: '600',
   },
   galleryTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginVertical: 10,
-    alignSelf: 'flex-start',
+    marginBottom: 10,
   },
   gallery: {
     paddingBottom: 20,
   },
   videoBox: {
     flex: 1,
-    height: 100,
-    margin: 5,
-    backgroundColor: '#add8e6', // Light blue for video boxes
-    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
-  },
-  thumbnail: {
-    width: '100%',
-    height: 100,
-    borderRadius: 8,
+    margin: 5,
   },
   videoTitle: {
     marginTop: 5,
-    color: '#333',
-    fontWeight: 'bold',
+    fontSize: 14,
     textAlign: 'center',
   },
 });
