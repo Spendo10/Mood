@@ -1,7 +1,8 @@
-// App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+// Import Screens
 import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -19,8 +20,8 @@ const App = () => {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Categories" component={CategoriesScreen} />
-        <Stack.Screen name="Nigeria Movies" component={NigeriaMoviesScreen} />
-        <Stack.Screen name="Action Movies" component={ActionMoviesScreen} />
+        <Stack.Screen name="NigeriaMoviesScreen" component={NigeriaMoviesScreen} />
+        <Stack.Screen name="ActionMoviesScreen" component={ActionMoviesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

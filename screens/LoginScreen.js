@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Image, TextInput } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -18,94 +18,117 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Logo at the top center */}
+      {/* Welcome message */}
+      <Text style={styles.welcomeText}>Welcome to FilmTube</Text>
+
+      {/* Logo and title */}
       <View style={styles.logoContainer}>
         <Image
-          source={{ uri: 'https://via.placeholder.com/100' }} // Replace with your logo URL
+          source={{ uri: 'https://via.placeholder.com/100' }}
           style={styles.logo}
         />
+        <Text style={styles.title}>Welcome Back!</Text>
+        <Text style={styles.subtitle}>Unlimited Movies</Text>
       </View>
 
-      {/* Welcome Text */}
-      <Text style={styles.welcomeText}>Welcome to FilmTube</Text>
-      <Text style={styles.subtitleText}>Create an account to enjoy 24/7 movies</Text>
-
-      {/* Login Form */}
-      <View style={styles.loginContent}>
+      {/* Input fields */}
+      <View style={styles.inputContainer}>
         <TextInput
+          style={styles.input}
           placeholder="Username"
+          placeholderTextColor="#aaa"
           value={username}
           onChangeText={setUsername}
-          style={styles.input}
         />
         <TextInput
+          style={styles.input}
           placeholder="Password"
+          placeholderTextColor="#aaa"
+          secureTextEntry
           value={password}
           onChangeText={setPassword}
-          secureTextEntry
-          style={styles.input}
         />
-        <View style={styles.buttonContainer}>
-          <Button title="Login" onPress={handleLogin} color="#841584" />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title="Go to Sign Up"
-            onPress={() => navigation.navigate('SignUp')}
-            color="#841584"
-          />
-        </View>
       </View>
+
+      {/* Login Button */}
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity>
+
+      {/* Forgot Password */}
+      <TouchableOpacity onPress={() => alert('Forgot Password')}>
+        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default LoginScreen;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0', // Normal background color
-    alignItems: 'center',
+    backgroundColor: '#f5f6fa',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    padding: 20,
+  },
+  welcomeText: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#4a90e2',
+    marginBottom: 20,
   },
   logoContainer: {
-    marginBottom: 20,
+    alignItems: 'center',
+    marginBottom: 40,
   },
   logo: {
     width: 100,
     height: 100,
-    borderRadius: 50,
+    borderRadius: 10,
+    marginBottom: 15,
   },
-  welcomeText: {
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'green', // Green color for the welcome text
-    textAlign: 'center',
-    marginBottom: 10,
+    color: '#333',
   },
-  subtitleText: {
+  subtitle: {
     fontSize: 16,
-    color: 'red', // Red color for the subtitle text
-    textAlign: 'center',
-    marginBottom: 30,
+    color: '#888',
+    marginTop: 5,
   },
-  loginContent: {
-    width: '80%',
-    alignItems: 'center',
+  inputContainer: {
+    marginBottom: 20,
   },
   input: {
-    width: '100%',
-    padding: 10,
-    marginVertical: 10,
+    height: 50,
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    marginBottom: 15,
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    backgroundColor: '#fff',
+    borderColor: '#dcdde1',
+    color: '#333',
   },
-  buttonContainer: {
-    width: '100%',
-    marginVertical: 10, // Adds space between buttons
+  button: {
+    backgroundColor: '#4a90e2',
+    paddingVertical: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  forgotPassword: {
+    textAlign: 'center',
+    color: '#4a90e2',
+    fontSize: 14,
+    marginTop: 15,
   },
 });
+
+export default LoginScreen;

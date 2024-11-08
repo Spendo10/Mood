@@ -15,17 +15,23 @@ const categories = [
 
 const CategoriesScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.categoryBox} onPress={() => navigation.navigate(item.screen)}>
+    <TouchableOpacity
+      style={styles.categoryBox}
+      onPress={() => navigation.navigate(item.screen)}
+      activeOpacity={0.7} // Active opacity for better touch feedback
+    >
       <Text style={styles.categoryText}>{item.title}</Text>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
+      <Text style={styles.headerText}>Browse Categories</Text>
       <FlatList
         data={categories}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.flatListContainer}
       />
     </View>
   );
@@ -37,16 +43,32 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
   },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#333',
+  },
+  flatListContainer: {
+    paddingBottom: 20,
+  },
   categoryBox: {
-    padding: 20,
-    backgroundColor: '#f0f0f0',
-    marginBottom: 10,
-    borderRadius: 8,
+    padding: 18,
+    backgroundColor: '#4a90e2', // Blue color for buttons
+    marginBottom: 15,
+    borderRadius: 10,
     alignItems: 'center',
+    shadowColor: '#000', // Shadow for depth effect
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5, // For Android shadow
   },
   categoryText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '600',
+    color: '#fff',
   },
 });
 
