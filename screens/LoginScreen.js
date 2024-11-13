@@ -7,9 +7,7 @@ const LoginScreen = ({ navigation }) => {
 
   // Fake login function
   const handleLogin = () => {
-    // Check if username and password are provided
     if (username && password) {
-      // Navigate to Home (fake login)
       navigation.navigate('Home');
     } else {
       alert('Please enter both username and password');
@@ -24,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
       {/* Logo and title */}
       <View style={styles.logoContainer}>
         <Image
-          source={{ uri: 'https://via.placeholder.com/100' }}
+          source={require('../assets/logos.png')} // Ensure logos.png exists in assets
           style={styles.logo}
         />
         <Text style={styles.title}>Welcome Back!</Text>
@@ -59,6 +57,11 @@ const LoginScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => alert('Forgot Password')}>
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
+
+      {/* Sign Up Link */}
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+        <Text style={styles.signUpText}>Don't have an account? Sign Up</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -66,7 +69,7 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f6fa',
+    backgroundColor: '#ffffff',  // Neutral background color
     justifyContent: 'center',
     padding: 20,
   },
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f5f6fa',
     borderRadius: 8,
     paddingHorizontal: 15,
     fontSize: 16,
@@ -124,6 +127,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   forgotPassword: {
+    textAlign: 'center',
+    color: '#4a90e2',
+    fontSize: 14,
+    marginTop: 15,
+  },
+  signUpText: {
     textAlign: 'center',
     color: '#4a90e2',
     fontSize: 14,
