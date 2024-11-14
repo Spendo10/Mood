@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import CategoriesScreen from './screens/CategoriesScreen';
 import NigeriaMoviesScreen from './screens/NigeriaMoviesScreen';
 import ActionMoviesScreen from './screens/ActionMoviesScreen';
+import SearchResultsScreen from './screens/SearchResultsScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const App = () => {
         <Stack.Screen name="Categories" component={CategoriesScreen} />
         <Stack.Screen name="NigeriaMoviesScreen" component={NigeriaMoviesScreen} />
         <Stack.Screen name="ActionMoviesScreen" component={ActionMoviesScreen} />
+        <Stack.Screen name="SearchResultsScreen" component={SearchResultsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
