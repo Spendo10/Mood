@@ -9,6 +9,7 @@ const HomeScreen = ({ navigation }) => {
     { id: '1', title: 'Nigeria Movies', thumbnail: 'https://img.youtube.com/vi/ftRSxOqZ148/hqdefault.jpg', link: 'https://youtu.be/ftRSxOqZ148?si=O143mO2azDPN2J8c' },
     { id: '2', title: 'Action Movies', thumbnail: 'https://img.youtube.com/vi/ftRSxOqZ148/hqdefault.jpg', link: 'https://youtu.be/ftRSxOqZ148?si=O143mO2azDPN2J8c' },
   ];
+  
   const videoItems = [
     { id: '1', title: 'Video 1', thumbnail: 'https://img.youtube.com/vi/x2R1HCz1xzQ/hqdefault.jpg', link: 'https://youtu.be/x2R1HCz1xzQ?si=OvAxAWhheLI8xuLk' },
     { id: '2', title: 'Video 2', thumbnail: 'https://img.youtube.com/vi/I3-lMkyTsc8/hqdefault.jpg', link: 'https://youtu.be/I3-lMkyTsc8?si=UQQciCAB8sUMsDym' },
@@ -41,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
   // Handle search and navigate to SearchResultsScreen
   const handleSearch = async () => {
     const results = await fetchGoogleResults(searchQuery);
-    navigation.navigate('SearchResultsScreen', { results });
+    navigation.navigate('SearchResults', { results }); // Ensure name matches in App.js
   };
 
   // Render functions for categories and videos

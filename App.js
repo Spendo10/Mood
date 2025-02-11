@@ -21,9 +21,9 @@ const App = () => {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Categories" component={CategoriesScreen} />
-        <Stack.Screen name="NigeriaMoviesScreen" component={NigeriaMoviesScreen} />
-        <Stack.Screen name="ActionMoviesScreen" component={ActionMoviesScreen} />
-        <Stack.Screen name="SearchResultsScreen" component={SearchResultsScreen} />
+        <Stack.Screen name="NigeriaMovies" component={NigeriaMoviesScreen} />
+        <Stack.Screen name="ActionMovies" component={ActionMoviesScreen} />
+        <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
