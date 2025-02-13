@@ -10,6 +10,7 @@ import CategoriesScreen from './screens/CategoriesScreen';
 import NigeriaMoviesScreen from './screens/NigeriaMoviesScreen';
 import ActionMoviesScreen from './screens/ActionMoviesScreen';
 import SearchResultsScreen from './screens/SearchResultsScreen';
+import SearchResultDetail from './screens/SearchResultDetail'; // Ensure this file exists
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const App = () => {
         <Stack.Screen name="NigeriaMovies" component={NigeriaMoviesScreen} />
         <Stack.Screen name="ActionMovies" component={ActionMoviesScreen} />
         <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
+        <Stack.Screen name="SearchResultDetail" component={SearchResultDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
