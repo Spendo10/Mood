@@ -9,8 +9,9 @@ import HomeScreen from './screens/HomeScreen';
 import CategoriesScreen from './screens/CategoriesScreen';
 import NigeriaMoviesScreen from './screens/NigeriaMoviesScreen';
 import ActionMoviesScreen from './screens/ActionMoviesScreen';
+import ComedyMoviesScreen from './screens/ComedyMoviesScreen'; // Ensure this file exists
 import SearchResultsScreen from './screens/SearchResultsScreen';
-import SearchResultDetail from './screens/SearchResultDetail'; // Ensure this file exists
+import SearchResultDetail from './screens/SearchResultDetail';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const App = () => {
         <Stack.Screen name="Categories" component={CategoriesScreen} />
         <Stack.Screen name="NigeriaMovies" component={NigeriaMoviesScreen} />
         <Stack.Screen name="ActionMovies" component={ActionMoviesScreen} />
+        <Stack.Screen name="ComedyMovies" component={ComedyMoviesScreen} />
         <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
         <Stack.Screen name="SearchResultDetail" component={SearchResultDetail} />
       </Stack.Navigator>

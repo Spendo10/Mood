@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 
+// Categories data with screen names for navigation
 const categories = [
-  { id: '1', title: 'Nigeria Movies', screen: 'NigeriaMoviesScreen' },
-  { id: '2', title: 'Action Movies', screen: 'ActionMoviesScreen' },
-  { id: '3', title: 'Comedy Movies', screen: 'ComedyMoviesScreen' },
-  { id: '4', title: 'Drama Movies', screen: 'DramaMoviesScreen' },
-  { id: '5', title: 'Horror Movies', screen: 'HorrorMoviesScreen' },
-  { id: '6', title: 'Documentaries', screen: 'DocumentaryScreen' },
-  { id: '7', title: 'Kids Movies', screen: 'KidsMoviesScreen' },
-  { id: '8', title: 'Romantic Movies', screen: 'RomanticMoviesScreen' },
+  { id: '1', title: 'Nigeria Movies', screen: 'NigeriaMovies' },
+  { id: '2', title: 'Action Movies', screen: 'ActionMovies' },
+  { id: '3', title: 'Comedy Movies', screen: 'ComedyMovies' }, // Ensure this is correct
+  { id: '4', title: 'Horror Movies', screen: 'HorrorMovies' },
+  { id: '5', title: 'Documentaries', screen: 'DocumentaryScreen' },
+  { id: '6', title: 'Kids Movies', screen: 'KidsMoviesScreen' },
+  { id: '7', title: 'Romantic Movies', screen: 'RomanticMoviesScreen' },
   // Add more categories as needed
 ];
 
@@ -17,8 +17,8 @@ const CategoriesScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.categoryBox}
-      onPress={() => navigation.navigate(item.screen)}
-      activeOpacity={0.7} // Active opacity for better touch feedback
+      onPress={() => navigation.navigate(item.screen)} // Correct navigation
+      activeOpacity={0.7}
     >
       <Text style={styles.categoryText}>{item.title}</Text>
     </TouchableOpacity>
@@ -41,21 +41,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5', // Light gray background color
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: '#333',
+    color: '#4a90e2', // Blue color for the header
   },
   flatListContainer: {
     paddingBottom: 20,
   },
   categoryBox: {
     padding: 18,
-    backgroundColor: '#4a90e2', // Blue color for buttons
+    backgroundColor: '#4a90e2', // Blue background for category boxes
     marginBottom: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#fff',
+    color: '#fff', // White text color for contrast
   },
 });
 
